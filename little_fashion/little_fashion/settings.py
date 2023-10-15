@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'livereload',
+    'widget_tweaks',
     'django.contrib.staticfiles',
 ]
 

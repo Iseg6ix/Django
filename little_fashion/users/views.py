@@ -15,5 +15,5 @@ def signup(request):
         'title': 'Sign Up',
         'form': form
     }
-    return render(request, 'users/sign-up.html', context)
+    return render(request, 'users/form.html', context)
 
