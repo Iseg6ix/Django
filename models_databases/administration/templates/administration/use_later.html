@@ -1,0 +1,16 @@
+# from django.shortcuts import render
+# from django.http import HttpResponse
+# from .models import Student
+# from .forms import CreateStudentForm
+
+
+# def create_student(request):
+#     if request.method == 'POST':
+#         form = CreateStudentForm(request.POST)
+#         if form.is_valid():
+#             student_name = form.cleaned_data['name']
+#             student = Student.objects.create(name=student_name)
+#             student.save()
+#             return HttpResponse(f'Account successfully created for {student_name}')
+#     form = CreateStudentForm()
+#     return render(request, 'administration/create_student.html', {'form': form})
