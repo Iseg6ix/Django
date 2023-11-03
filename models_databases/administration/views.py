@@ -13,7 +13,5 @@ def create_student(request):
             student = Student.objects.create(name=student_name)
             student.save()
             return HttpResponse(f"Account successfully created for {student_name}")
-        else:
-            form = CreateStudentForm()
-    form = CreateStudentForm()
+    form = CreateStudentForm({'name': 'John'})  # represented as form.name.value on the html tags
     return render(request, 'administration/create_student.html', {'form': form})
