@@ -12,3 +12,18 @@ def products(request):
         'title': 'Products'
     }
     return render(request, 'base/products.html', context)
+
+
+
+def about(request):
+    context = {
+        'title': 'About'
+    }
+    return render(request, 'base/about.html', context)
+
+
+def contact(request):
+    context = {
+        'title': 'contact'
+    }
+    return render(request, 'base/contact.html', context)

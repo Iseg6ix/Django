@@ -17,3 +17,10 @@ def signup(request):
     }
     return render(request, 'users/form.html', context)
 
+
+def signin(request):
+    context = {
+        'title': 'Sign In'
+    }
+    return render(request, 'users/signin.html', context)
+
