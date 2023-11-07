@@ -5,24 +5,13 @@ from .models import Student
 from django.forms import formset_factory
 
 def create_student(request):
+    StudentFormSet = formset_factory(CreateStudentForm)
+    student_formset = StudentFormSet(initial=[{'name': 'John'}, {'name': "John"}])
     if request.method == 'POST':
-        form = CreateStudentForm(request.POST)
-        if form.is_valid():
-            student_name = form.cleaned_data['name']
-            student = Student(name = student_name)
-            student.save()
-            return HttpResponse(f"Profile created successfully for {student_name}")
-    form = CreateStudentForm()
-    create_student_form_set = formset_factory(CreateStudentForm, extra=1)
-    formset = create_student_form_set(
-        initial = [
-            {
-                'name': 'Jude',
-            }
-        ]
-    )
+        student_formset = StudentFormSet(request.post)
+        if student_formset.is_valid():
+            return HttpResponse(student_formset.cleaned_data)
     context = {
-        'form': form,
-        'formset': formset,
+        'formset': student_formset
     }
     return render(request, 'administration/create_student.html', context)
