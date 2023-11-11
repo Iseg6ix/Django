@@ -22,5 +22,5 @@ def signin(request):
     context = {
         'title': 'Sign In'
     }
-    return render(request, 'users/signin.html', context)
+    return render(request, 'users/sign-in.html', context)
 

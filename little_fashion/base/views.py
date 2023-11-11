@@ -27,3 +27,10 @@ def contact(request):
         'title': 'contact'
     }
     return render(request, 'base/contact.html', context)
+
+
+def faq(request):
+    context = {
+        'title': 'faq'
+    }
+    return render(request, 'base/faq.html', context)
