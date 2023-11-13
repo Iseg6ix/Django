@@ -19,11 +19,12 @@ class BaseStudentFormset(BaseFormSet):
         names.append(name)
 
 def create_student(request):
-    StudentFormset = formset_factory(CreateStudentForm, formset=BaseStudentFormset, can_order=2)
+    StudentFormset = formset_factory(CreateStudentForm, formset=BaseStudentFormset, can_order=True)
     if request.method == 'POST':
         student_formset = StudentFormset(request.POST)
-        return HttpResponse(student_formset.cleaned_data)
-    student_formset = StudentFormset(initial= [{'name': 'John'}, {'name': 'John'}])
+        if student_formset.is_valid():
+            return HttpResponse(student_formset.cleaned_data)
+    student_formset = StudentFormset(initial= [{'name': 'John'}, {'name': 'Jude'}])
     context = {
         'formset': student_formset
     }

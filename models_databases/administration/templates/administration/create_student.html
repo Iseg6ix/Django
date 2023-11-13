@@ -1,16 +1,12 @@
-<form method="POST">
+<form method="POST" action="{% url 'create_student' %}">
     {% csrf_token %}
     {{ form.name.value }}  <!-- forms.as_p gives us the fields in paragraphs, by default, it is forms.as_table.
         While using the <table></table> tag gives the form fields in tabular form, forms.as_ul give use each field 
         as a bullet points.-->
 
-    {% for field in form %}
+    {% for field in formset %}
         <div class="fieldwrapper">
-            {{ field.errors}}
-            {{ field.label_tag }} {{ field }}
-            {% if field.help_text %}
-            <p class="help">{{ field.help_text|safe }}</p>
-            {% endif %}
+            {{ field }}
         </div>
     {% endfor %}
     <input type="submit" value="SUBMIT">
