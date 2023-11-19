@@ -6,4 +6,4 @@ class Student(models.Model):
     graduated = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"User: {self.name}"
+        return f"{self.name}, {self.age} years old, Graduated: {self.graduated}"

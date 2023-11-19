@@ -10,4 +10,10 @@ class CreateStudentForm(forms.Form):
 class StudentModelForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['name', 'age', 'graduated']
+        exclude = []  # The exclude option can also be used, or fields = '__all__' to render all the fields.
+
+
+
+class StudentModelFormNew(StudentModelForm):
+    class Meta(StudentModelForm.Meta):
+        exclude = ['graduated']

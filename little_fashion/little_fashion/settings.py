@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'livereload',
     'widget_tweaks',
+    'livereload',
     'django.contrib.staticfiles',
 ]
 

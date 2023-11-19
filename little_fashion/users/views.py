@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect
-from .forms import UserCreationForm
+from .forms import SignUpForm
 
 
 def signup(request):
     if request.method =='POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data.get(username)
             email = form.cleaned_data.get(email)
             return redirect('home')
     else:
-        form = UserCreationForm()   
+        form = SignUpForm()   
     context = {
         'title': 'Sign Up',
         'form': form
